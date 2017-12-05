@@ -43,23 +43,7 @@ public class BusinessService {
                 for (int i=0;i<200;i++){
                     futureList.add(new ExecuteCallable(i));
                 }
-                try {
-                    List<Future<Long>> futureListResult = threadPoolExecutor1.invokeAll(
-                            futureList);
-                    futureListResult.forEach(listFuture -> {
-                        try {
-                            idList.add(listFuture.get());
-                        } catch (InterruptedException ee) {
-                            ee.printStackTrace();
-                        } catch (ExecutionException ee) {
-                            ee.printStackTrace();
-                        }
-                    });
-                } catch (InterruptedException ie) {
-                    ie.printStackTrace();
-                }catch (Exception ex) {
-                   ex.printStackTrace();
-                }
+
                 count++;
 
             }
